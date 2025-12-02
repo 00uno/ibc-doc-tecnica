@@ -7,7 +7,7 @@
 
   <style>
     :root {
-      /* MANTENEMOS TU PALETA DARK "TECH" */
+      /* PALETA DE COLORES DARK TECH */
       --bg: #050712;
       --bg-alt: #0b1120;
       --accent: #ff7a1a; /* Naranja Seguridad */
@@ -17,9 +17,8 @@
       --border: #1f2937;
       --shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
       --radius: 16px;
-      --max-width: 1040px;
       
-      /* COLOR WHATSAPP PARA EL BOTÓN DE ACCIÓN */
+      /* COLOR WHATSAPP */
       --whatsapp: #25D366;
     }
 
@@ -32,10 +31,10 @@
       line-height: 1.6;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: var(--accent); text-decoration: none; transition: 0.2s; }
+    a:hover { filter: brightness(1.2); }
 
-    /* HEADER */
+    /* --- HEADER --- */
     header {
       position: sticky;
       top: 0;
@@ -46,9 +45,9 @@
     }
 
     .nav {
-      max-width: var(--max-width);
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 0.6rem 1.25rem;
+      padding: 0.8rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -61,51 +60,36 @@
       gap: 0.65rem;
     }
 
-    .logo img {
-      height: 40px; 
-      width: auto; 
-      border-radius: 8px;
-    }
-
     .logo-text-main {
       font-weight: 700;
       letter-spacing: 0.1em;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #fff;
     }
     .logo-text-sub { font-size: 0.7rem; color: var(--accent); }
 
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
       font-size: 0.9rem;
     }
 
-    .nav-links a {
-      color: var(--text-soft);
-      padding: 0.25rem 0;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover {
-      color: #fff;
-      border-bottom-color: var(--accent);
-    }
+    .nav-links a { color: var(--text-soft); }
+    .nav-links a:hover { color: #fff; }
 
-    /* MAIN LAYOUT */
+    /* --- LAYOUT GENERAL --- */
     main {
-      max-width: var(--max-width);
+      max-width: 1040px;
       margin: 0 auto;
       padding: 2rem 1.25rem 4rem;
     }
 
-    section { margin: 4rem 0; }
+    section { margin: 5rem 0; }
 
     h1,h2,h3 { font-weight: 700; color: #fff; }
     h1 { font-size: clamp(2rem, 3vw + 1rem, 2.8rem); line-height: 1.2; }
     h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
-
+    
     .eyebrow {
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -113,11 +97,12 @@
       color: var(--accent);
       margin-bottom: 0.8rem;
       font-weight: 700;
+      display: block;
     }
 
     .muted { color: var(--text-soft); }
 
-    /* HERO SECTION */
+    /* --- HERO --- */
     .hero {
       display: grid;
       grid-template-columns: minmax(0,1.2fr) minmax(0,0.8fr);
@@ -146,30 +131,25 @@
       padding: 0.75rem 1.5rem;
       font-size: 0.95rem;
       font-weight: 600;
-      border: 1px solid transparent;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      transition: all 0.2s ease;
-      text-decoration: none;
+      border: 1px solid transparent;
     }
 
     .btn-primary {
       background: var(--accent);
-      color: #050712; /* Texto oscuro para contraste con naranja */
+      color: #050712;
     }
-    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); }
+    .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
     .btn-whatsapp {
-      background: rgba(37, 211, 102, 0.15);
+      background: rgba(37, 211, 102, 0.1);
       color: #25D366;
       border: 1px solid #25D366;
     }
-    .btn-whatsapp:hover {
-      background: #25D366;
-      color: #000;
-    }
+    .btn-whatsapp:hover { background: #25D366; color: #000; }
 
     .btn-ghost {
       background: transparent;
@@ -178,66 +158,100 @@
     }
     .btn-ghost:hover { border-color: var(--accent); color: #fff; }
 
-    /* HERO SIDE CARD */
-    .hero-side {
-      background: radial-gradient(circle at top right, #1b2437 0, #0b1120 100%);
-      border-radius: 20px;
-      padding: 2rem;
+    /* --- DESPLEGABLES (ACORDEÓN) --- */
+    .accordion-item {
+      background: var(--bg-alt);
       border: 1px solid var(--border);
-      box-shadow: 0 0 30px rgba(255,122,26,0.05);
-      position: relative;
-    }
-    /* Efecto "Technical" */
-    .hero-side::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.5;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
     }
 
-    /* BADGES */
-    .badge-list {
+    .accordion-item:hover {
+      border-color: var(--text-soft);
+    }
+
+    details { width: 100%; }
+
+    summary {
+      padding: 1.2rem 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .badge {
-      font-size: 0.75rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 99px;
-      border: 1px solid #374151;
-      background: rgba(0,0,0,0.3);
-      color: var(--text-soft);
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      color: #fff;
     }
 
-    /* GRIDS & CARDS */
-    .grid-2 {
+    /* Cruz del acordeón */
+    summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--accent);
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 122, 26, 0.05);
+    }
+
+    .accordion-content {
+      padding: 1.5rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .idea-list {
+      margin-top: 1rem;
       display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap: 2rem;
+      gap: 0.8rem;
+    }
+
+    .idea-item {
+      background: rgba(0,0,0,0.2);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .idea-title {
+      color: #fff;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- TARIFAS & CONTACTO --- */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
     .card {
       background: var(--bg-alt);
-      border-radius: var(--radius);
-      padding: 1.8rem;
+      border-radius: 12px;
+      padding: 1.5rem;
       border: 1px solid var(--border);
-      transition: transform 0.2s;
+      text-align: center;
     }
-    .card:hover { border-color: #374151; transform: translateY(-2px); }
-
-    .card-highlight {
-      border-color: var(--accent);
-      background: radial-gradient(circle at top left, rgba(255,122,26,0.05), transparent 60%);
-    }
-
-    ul { list-style: none; margin-top: 0.8rem; }
-    li { margin-bottom: 0.5rem; color: var(--text-soft); display: flex; align-items: flex-start; gap: 0.5rem; }
-    li::before { content:"✓"; color: var(--accent); font-weight: bold; }
-
-    /* CONTACTO */
+    
     .contact-container {
       background: #0f172a;
       border-radius: 20px;
@@ -247,7 +261,7 @@
     }
 
     /* FORMULARIOS */
-    form { text-align: left; max-width: 500px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+    form { max-width: 500px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 1rem; text-align: left; }
     
     input, textarea, select {
       background: #020617;
@@ -273,10 +287,9 @@
     /* RESPONSIVE */
     @media (max-width:800px) {
       .hero { grid-template-columns: 1fr; gap: 2rem; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .nav-links { display: none; } /* En móvil ocultamos menú simple */
+      .grid-3 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
       h1 { font-size: 2rem; }
-      .hero-side { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -289,20 +302,18 @@
         <div style="background:var(--accent); width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:black;">IB</div>
         <div>
           <div class="logo-text-main">IBC · TECNIA</div>
-          <div class="logo-text-sub">Soluciones Técnicas & Digitales</div>
+          <div class="logo-text-sub">Soporte Técnico & Digital</div>
         </div>
       </div>
 
       <div class="nav-links">
         <a href="#inicio">Inicio</a>
-        <a href="#servicios">Negocios</a>
-        <a href="#formacion">Estudiantes</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#tarifas">Precios</a>
         <a href="#contacto">Contacto</a>
       </div>
 
-      <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="padding: 0.5rem 1rem; font-size:0.8rem;">
-        WhatsApp Directo
-      </a>
+      <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="font-size:0.8rem; padding: 0.5rem 1rem;">WhatsApp</a>
     </nav>
   </header>
 
@@ -310,124 +321,168 @@
 
     <section id="inicio" class="hero">
       <div class="hero-main">
-        <div class="eyebrow">Soporte Local & Online</div>
-        <h1>Pongo orden técnico y digital en tu negocio o estudios.</h1>
+        <span class="eyebrow">Ingeniería aplicada a tu día a día</span>
+        <h1>Pongo orden técnico en tu negocio y simplifico tu vida.</h1>
         <p>
-          Soy <strong>Iván Ballesteros</strong>, Técnico Industrial con 15 años de experiencia. 
-          Aplico el rigor de la gran industria para solucionar los problemas del día a día 
-          en talleres, pequeños comercios y aulas de formación.
+          Soy <strong>Iván Ballesteros</strong>. Aplico 15 años de experiencia industrial para 
+          resolver problemas reales de comercios, estudiantes y particulares.
+          <br><br>
+          Desde organizar un bar hasta aprobar un examen de Robótica.
         </p>
         
         <div class="hero-actions">
-          <a href="#contacto" class="btn btn-primary">Pedir Presupuesto</a>
-          <a href="#servicios" class="btn btn-ghost">Ver qué hago</a>
+          <a href="#soluciones" class="btn btn-primary">Ver soluciones</a>
+          <a href="#contacto" class="btn btn-ghost">Tengo una duda</a>
         </div>
       </div>
 
-      <aside class="hero-side">
-        <h3>¿En qué te ayudo hoy?</h3>
-        <p class="muted" style="margin-bottom:1rem;">Soluciones rápidas, sin burocracia y directas al grano.</p>
-        
-        <ul style="margin:0;">
-          <li><strong>Talleres/Pymes:</strong> Manuales, Seguridad y Papeles.</li>
-          <li><strong>Estudiantes:</strong> Resúmenes y Apoyo Técnico.</li>
-          <li><strong>Particulares:</strong> Trámites Digitales.</li>
-        </ul>
-
-        <div class="badge-list">
-          <span class="badge">Experiencia Industrial</span>
-          <span class="badge">IA Aplicada</span>
-          <span class="badge">Vecino del Barrio</span>
+      <div style="background: radial-gradient(circle at top right, #1b2437 0, #0b1120 100%); padding: 2rem; border-radius: 20px; border: 1px solid var(--border);">
+        <h3>Soporte experto, trato de vecino</h3>
+        <p class="muted" style="margin-bottom:1rem; font-size:0.95rem;">
+          Olvídate de consultoras caras. Uso herramientas modernas (IA) para darte soluciones rápidas y económicas.
+        </p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">15 años Experiencia</span>
+          <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Cobre Las Cruces</span>
+          <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Tecnología IA</span>
         </div>
-      </aside>
-    </section>
-
-
-    <section id="servicios">
-      <div class="eyebrow">Para el Profesional</div>
-      <h2>Soluciones para Talleres y Pequeño Comercio</h2>
-      <p class="muted">Deja de perder tiempo con papeles o explicando lo mismo 100 veces.</p>
-
-      <div class="grid-2" style="margin-top:2rem;">
-        
-        <div class="card card-highlight">
-          <h3>📂 Organización y Documentación</h3>
-          <p class="muted" style="margin-top:0.5rem;">Ideal para Talleres, Reformas e Instaladores.</p>
-          <ul>
-            <li><strong>Pasar a limpio:</strong> Convierto tus notas a mano en presupuestos o memorias profesionales.</li>
-            <li><strong>Fichas de Seguridad:</strong> Instrucciones simples para evitar accidentes en tu taller.</li>
-            <li><strong>Digitalización:</strong> Te ayudo a organizar facturas y carpetas en el ordenador.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>⚙️ Manuales "Antidesastre"</h3>
-          <p class="muted" style="margin-top:0.5rem;">Para Bares, Comercio y Atención al Cliente.</p>
-          <ul>
-            <li><strong>Guías para Empleados:</strong> "Cómo cerrar caja", "Cómo usar la cafetera". Con fotos y fácil.</li>
-            <li><strong>Protocolos Rápidos:</strong> Qué hacer si falla internet o hay una urgencia.</li>
-            <li><strong>Formación Express:</strong> Ahorra tiempo enseñando al personal nuevo.</li>
-          </ul>
-        </div>
-
       </div>
     </section>
 
 
-    <section id="formacion">
-      <div class="eyebrow">Formación y Ayuda</div>
-      <h2>Apoyo para Estudiantes y Opositores</h2>
-      <p class="muted">No te atasques con la parte técnica. Te ayudo a aprobar.</p>
+    <section id="soluciones">
+      <div class="eyebrow">¿Qué necesitas?</div>
+      <h2>Soluciones a Medida</h2>
+      <p class="muted" style="margin-bottom: 2rem;">
+        Pulsa en tu caso para ver ideas de cómo ahorrar tiempo, dinero y evitar errores.
+      </p>
 
-      <div class="grid-2" style="margin-top:2rem;">
-        
-        <div class="card">
-          <h3>🎓 Automatización y FP</h3>
-          <ul>
-            <li><strong>Resúmenes Limpios:</strong> Temarios de PLC, Grafcet o Robótica explicados fácil.</li>
-            <li><strong>Esquemas de Estudio:</strong> Diagramas visuales para memorizar rápido.</li>
-            <li><strong>Dudas Puntuales:</strong> ¿No entiendes un ejercicio? Te lo explico paso a paso.</li>
-          </ul>
-        </div>
+      <div class="accordion-item">
+        <details>
+          <summary>🍺 Bares, Restaurantes y Pequeño Comercio</summary>
+          <div class="accordion-content">
+            <p>
+              El día a día te come y no tienes tiempo de organizar. Yo pongo "cerebro de ingeniero" 
+              para que tu negocio funcione como un reloj, sin fugas de dinero ni fallos tontos.
+            </p>
+            <div class="idea-list">
+              <div class="idea-item">
+                <span class="idea-title">Menús y Cartas Rentables</span>
+                Diseño tu menú semanal o mensual con <strong>lista de la compra exacta</strong> y recetas paso a paso. 
+                Evita tirar comida y calcula el coste real de cada plato.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">Protocolos "Antifraude" y Errores</span>
+                ¿Caja descuadrada? ¿Mermas sospechosas? Creo procedimientos de control simples para evitar robos hormiga y fallos de stock.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">Visión de Mercado</span>
+                Analizo tu zona y te digo qué "agujeros" hay en el mercado que no estás aprovechando (precios, ofertas, tipo de cliente).
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
 
-        <div class="card">
-          <h3>💻 Ayuda Digital Personal</h3>
-          <ul>
-            <li><strong>Trámites Online:</strong> Ayuda para sacar certificados, citas o rellenar formularios.</li>
-            <li><strong>Trabajos de Clase:</strong> Maquetación y revisión de documentos (Word/PDF).</li>
-            <li><strong>Tecnología Básica:</strong> Aprende a usar herramientas digitales sin miedo.</li>
-          </ul>
-        </div>
+      <div class="accordion-item">
+        <details>
+          <summary>🎓 Estudiantes (FP, Universidad, Opos)</summary>
+          <div class="accordion-content">
+            <p>
+              No pierdas horas pasando apuntes a limpio o peleándote con el Word. 
+              Dedícate a estudiar, yo me encargo de que tu material sea perfecto.
+            </p>
+            <div class="idea-list">
+              <div class="idea-item">
+                <span class="idea-title">Limpieza de Apuntes y Resúmenes</span>
+                Paso tus notas a mano a documentos PDF estructurados, con esquemas y fáciles de memorizar.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">Apoyo Técnico (PLC / Robótica)</span>
+                Explicaciones "para humanos" de conceptos difíciles. Si te atascas con Siemens o Grafcet, te lo desbloqueo.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">Formato de Trabajos</span>
+                Maquetación profesional para TFG o proyectos finales. Que tu trabajo entre por los ojos al profesor.
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
 
+      <div class="accordion-item">
+        <details>
+          <summary>🏠 Particulares: Gestión del Hogar y Tiempo</summary>
+          <div class="accordion-content">
+            <p>
+              Aplicamos la organización industrial a tu casa. Recupera tu tiempo libre y deja de agobiarte por la gestión doméstica.
+            </p>
+            <div class="idea-list">
+              <div class="idea-item">
+                <span class="idea-title">Planificación de Menús y Compra</span>
+                Menú mensual completo basado en tu presupuesto, con la lista de súper organizada por pasillos. Ahorra dinero y no pienses "qué hago de comer".
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">Gestión de Trámites Digitales</span>
+                ¿Odias el certificado digital, la cita del médico o los papeleos del banco? Te ayudo a resolverlos rápido.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">Organización de Viajes y Eventos</span>
+                ¿Un viaje barato o una fiesta? Te busco las mejores opciones, comparo precios y te doy el plan hecho.
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="accordion-item">
+        <details>
+          <summary>🔧 Talleres, Reformas e Instaladores</summary>
+          <div class="accordion-content">
+            <p>
+              Eres un crack con las manos, pero los papeles se te hacen bola. 
+              Mejora tu imagen ante el cliente con documentación profesional.
+            </p>
+            <div class="idea-list">
+              <div class="idea-item">
+                <span class="idea-title">Presupuestos y Memorias</span>
+                Tú me das los datos por WhatsApp, yo te entrego un PDF impecable para enviárselo a tu cliente.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">Seguridad Simplificada</span>
+                Normas básicas de seguridad para tu taller o para obra. Cumple la ley sin complicarte la vida.
+              </div>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
 
     <section id="tarifas">
-      <div class="eyebrow">Precios Claros</div>
-      <h2>Tarifas de Vecino / Estudiante</h2>
-      <p class="muted">Precios cerrados. Sin sorpresas. Se paga por trabajo hecho.</p>
+      <div class="eyebrow" style="text-align:center;">Precios Claros</div>
+      <h2 style="text-align:center;">Tarifas de Vecino</h2>
+      <p class="muted" style="text-align:center; margin-bottom:2rem;">Precios cerrados. Sin sorpresas.</p>
 
-      <div class="grid-2" style="margin-top:2rem; grid-template-columns: repeat(3, 1fr);">
-        
-        <div class="card" style="text-align:center; padding: 1.5rem;">
+      <div class="grid-3">
+        <div class="card">
           <h3>Consulta / Ayuda</h3>
           <div style="font-size:2rem; font-weight:bold; color:var(--accent); margin:0.5rem 0;">10 €</div>
-          <p class="muted" style="font-size:0.9rem;">Duda rápida, trámite simple o revisión breve.</p>
+          <p class="muted">Duda rápida, trámite digital simple o revisión.</p>
         </div>
 
-        <div class="card card-highlight" style="text-align:center; padding: 1.5rem;">
+        <div class="card" style="border-color:var(--accent); position:relative;">
+          <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:2px 10px; font-size:0.7rem; border-radius:4px; font-weight:bold;">MÁS PEDIDO</span>
           <h3>Pack Documento</h3>
           <div style="font-size:2rem; font-weight:bold; color:#fff; margin:0.5rem 0;">20 - 40 €</div>
-          <p class="muted" style="font-size:0.9rem;">Manuales sencillos, resúmenes completos o guías.</p>
+          <p class="muted">Menús mensuales, Manuales básicos o Resúmenes.</p>
         </div>
 
-        <div class="card" style="text-align:center; padding: 1.5rem;">
+        <div class="card">
           <h3>Proyectos</h3>
           <div style="font-size:2rem; font-weight:bold; color:var(--accent); margin:0.5rem 0;">Consultar</div>
-          <p class="muted" style="font-size:0.9rem;">Para organizar un taller entero o trabajos grandes.</p>
+          <p class="muted">Organización completa de negocio o trabajos grandes.</p>
         </div>
-
       </div>
     </section>
 
@@ -437,25 +492,19 @@
         <div class="eyebrow">¿Empezamos?</div>
         <h2>Hablemos de lo que necesitas</h2>
         <p class="muted" style="margin-bottom:2rem;">
-          Tanto si tienes un taller, una tienda o estás estudiando. <br>
-          Cuéntame el problema y te digo cómo lo solucionamos.
+          Cuéntame el problema por WhatsApp o correo y te digo cómo lo solucionamos.
         </p>
 
-        <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="font-size:1.1rem; padding: 1rem 2rem;">
+        <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="font-size:1.1rem; padding: 1rem 2rem; display:inline-flex;">
           💬 Abrir WhatsApp Ahora
         </a>
 
-        <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top:2rem;">
-          <p class="muted">O si prefieres correo:</p>
-          <a href="mailto:ibclaboral@gmail.com" style="font-size:1.2rem; color: #fff;">ibclaboral@gmail.com</a>
-        </div>
-      
-        <form method="POST" action="https://formspree.io/f/xqarbqbk">
+        <form method="POST" action="https://formspree.io/f/TU_CODIGO_AQUI">
+          <label style="color:#fff; font-size:0.9rem;">O envíame un correo:</label>
           <input name="email" type="email" placeholder="Tu correo electrónico" required />
-          <textarea name="mensaje" rows="3" placeholder="O escríbeme por aquí..." required></textarea>
-          <button type="submit" class="btn btn-ghost" style="width:100%;">Enviar Correo</button>
+          <textarea name="mensaje" rows="3" placeholder="Describe tu duda o proyecto..." required></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Enviar Correo</button>
         </form>
-
       </div>
     </section>
 
