@@ -2,30 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>IBC · Ingeniería Documental Técnica</title>
+  <title>IBC · Ingeniería Documental</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Documentación técnica experta para industria y formación. Procedimientos, manuales y seguridad con 15 años de experiencia en planta.">
 
   <style>
     :root {
-      /* PALETA INDUSTRIAL NARANJA (OPCIÓN C) */
-      --bg-body: #f3f4f6;        /* Gris suave */
-      --bg-section-soft: #fef3e7;/* Naranja muy suave para secciones */
+      /* PALETA INDUSTRIAL PRO */
+      --bg-body: #f1f5f9;
       --bg-card: #ffffff;
-      --bg-hero: #111827;        /* Azul casi negro industrial */
-      
-      --text-main: #374151;      /* Gris oscuro legible */
-      --text-dark: #111827;      /* Títulos */
-      --text-light: #6b7280;     /* Texto secundario */
-      --text-hero: #f9fafb;      /* Texto claro */
+      --bg-hero: #0f172a;
 
-      --accent: #f97316;         /* Naranja seguridad */
+      --text-main: #334155;
+      --text-dark: #0f172a;
+      --text-light: #94a3b8;
+      --text-hero: #f8fafc;
+
+      --accent: #f97316;
       --accent-hover: #ea580c;
-      
-      --border: #e5e7eb;
-      --radius: 10px;
+
+      --border: #e2e8f0;
+      --radius: 8px;
       --max-width: 1100px;
-      --shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,7 +37,7 @@
       line-height: 1.6;
     }
 
-    a { text-decoration: none; transition: color 0.2s, background 0.2s, border-color 0.2s; }
+    a { text-decoration: none; transition: color 0.2s; }
     ul { list-style: none; }
 
     .container {
@@ -46,39 +46,33 @@
       padding: 0 1.5rem;
     }
 
-    /* BOTONES */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 0.75rem 1.5rem;
       font-weight: 600;
-      border-radius: 999px;
-      transition: all 0.2s;
+      border-radius: 6px;
       cursor: pointer;
+      transition: all 0.2s;
       border: none;
-      font-size: 0.95rem;
     }
 
     .btn-primary {
       background: var(--accent);
       color: white;
-      box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
     }
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
     .btn-outline {
       background: transparent;
-      border: 2px solid rgba(249, 115, 22, 0.4);
-      color: #fbbf24;
+      border: 2px solid var(--text-light);
+      color: var(--text-light);
     }
     .btn-outline:hover {
-      border-color: #fed7aa;
-      background: rgba(15, 23, 42, 0.5);
-      color: #ffedd5;
+      border-color: white;
+      color: white;
     }
 
     .tag {
@@ -88,31 +82,31 @@
       letter-spacing: 0.05em;
       padding: 0.25rem 0.75rem;
       border-radius: 99px;
-      background: rgba(249, 115, 22, 0.1);
-      color: #ea580c;
+      background: #e0f2fe;
+      color: #0369a1;
     }
 
     .section-title {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       color: var(--text-dark);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
       font-weight: 700;
     }
-    
+
     .eyebrow {
       color: var(--accent);
       font-weight: 700;
       text-transform: uppercase;
       font-size: 0.85rem;
-      letter-spacing: 0.08em;
+      letter-spacing: 1px;
       margin-bottom: 0.5rem;
       display: block;
     }
 
     /* HEADER */
     header {
-      background: #111827;
-      border-bottom: 1px solid #1f2937;
+      background: white;
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -122,37 +116,33 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 68px;
+      height: 70px;
     }
 
     .logo {
       font-weight: 800;
-      font-size: 1.4rem;
-      color: #f9fafb;
+      font-size: 1.5rem;
+      color: var(--bg-hero);
       letter-spacing: -0.5px;
     }
-    .logo span {
-      color: var(--accent);
-    }
+    .logo span { color: var(--accent); }
 
-    .nav-links { 
-      display: flex; 
-      gap: 1.8rem; 
-      font-size: 0.95rem; 
+    .nav-links {
+      display: flex;
+      gap: 2rem;
     }
-    .nav-links a { 
-      color: #e5e7eb; 
+    .nav-links a {
+      color: var(--text-main);
       font-weight: 500;
+      font-size: 0.95rem;
     }
-    .nav-links a:hover { 
-      color: var(--accent); 
-    }
+    .nav-links a:hover { color: var(--accent); }
 
     /* HERO */
     .hero-wrapper {
-      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
-      color: var(--text-hero);
-      padding: 4.5rem 0 4rem;
+      background: var(--bg-hero);
+      color: white;
+      padding: 5rem 0;
       position: relative;
       overflow: hidden;
     }
@@ -160,423 +150,277 @@
     .hero-wrapper::before {
       content: "";
       position: absolute;
-      top: -40px; right: -40px;
-      width: 260px; height: 260px;
-      background: radial-gradient(circle, rgba(249, 115, 22, 0.32) 0, transparent 60%);
-      opacity: 0.7;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(#ffffff 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.05;
       pointer-events: none;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.85fr;
-      gap: 3rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
       align-items: center;
-      position: relative;
       z-index: 2;
+      position: relative;
     }
 
     .hero-text h1 {
-      font-size: 2.7rem;
-      line-height: 1.1;
-      margin: 1.1rem 0;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
     }
 
     .hero-text p {
-      font-size: 1.05rem;
-      color: #e5e7eb;
-      margin-bottom: 1.8rem;
-      max-width: 520px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      max-width: 500px;
     }
 
     .hero-card {
-      background: #020617;
-      padding: 1.8rem;
-      border-radius: 14px;
-      color: var(--text-hero);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      color: var(--text-main);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border-top: 4px solid var(--accent);
     }
 
-    .hero-card h3 {
-      color: #f9fafb;
-      margin-bottom: 0.8rem;
-    }
+    section { padding: 5rem 0; }
 
-    .check-list li {
-      margin-bottom: 0.7rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.95rem;
-      color: #e5e7eb;
-    }
-    .check-list li::before {
-      content: "✓";
-      color: var(--accent);
-      font-weight: bold;
-      margin-top: 0.15rem;
-      font-size: 0.9rem;
-    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
 
-    /* SECCIONES GENERALES */
-    section {
-      padding: 4rem 0;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* CARDS */
     .card {
       background: var(--bg-card);
-      padding: 1.8rem;
+      padding: 2rem;
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
       box-shadow: var(--shadow);
-      border-color: rgba(249, 115, 22, 0.4);
+      transition: transform 0.2s;
     }
 
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      margin-bottom: 1rem;
-    }
+    .card:hover { transform: translateY(-3px); border-color: #cbd5e1; }
 
     .price-tag {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      color: var(--accent-hover);
-      margin: 0.6rem 0 0.3rem;
-    }
-    .price-tag span {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: var(--text-light);
-    }
-
-    /* FORMULARIO */
-    .form-group { margin-bottom: 1rem; }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.35rem;
-      font-size: 0.9rem;
-      font-weight: 600;
       color: var(--text-dark);
+      margin: 1rem 0;
     }
 
-    .form-input {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      color: var(--text-main);
-      background: #f9fafb;
-    }
-
-    .form-input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
-      background: #ffffff;
-    }
-
-    /* SECCIONES CON FONDO NARANJA SUAVE */
-    .section-soft {
-      background: var(--bg-section-soft);
-      border-top: 1px solid #fed7aa;
-      border-bottom: 1px solid #fed7aa;
-    }
-
-    /* FOOTER */
     footer {
-      background: #020617;
-      color: #9ca3af;
-      padding: 2.8rem 0;
+      background: var(--bg-hero);
+      color: #94a3b8;
+      padding: 3rem 0;
       text-align: center;
       font-size: 0.9rem;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 860px) {
-      .hero-grid,
-      .grid-2,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-wrapper {
-        padding: 3.2rem 0 3rem;
-      }
-
-      .hero-text h1 {
-        font-size: 2.1rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      header .btn-primary {
-        display: none;
-      }
+    @media (max-width: 768px) {
+      .hero-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-wrapper { padding: 3rem 0; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="logo">IBC <span>DOC. TÉCNICA</span></div>
-      <nav class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#perfil">Perfil</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#tarifas">Tarifas</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <a href="#contacto" class="btn btn-primary">Pedir presupuesto</a>
-    </div>
-  </header>
+<header>
+  <div class="container nav">
+    <div class="logo">IBC <span>DOC. TÉCNICA</span></div>
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#tarifas">Tarifas</a>
+    </nav>
+    <a href="#contacto" class="btn btn-primary">Pedir Presupuesto</a>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <div id="inicio" class="hero-wrapper">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <span class="tag">IA + 15 años en planta</span>
-        <h1>Documentación técnica que reduce riesgo y ahorra tiempo.</h1>
-        <p>
-          Transformo procesos complejos y manuales técnicos en herramientas operativas claras.
-          Validación experta y velocidad mediante IA para industria, formación y técnicos en activo.
-        </p>
-        <div class="hero-actions">
-          <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
-          <a href="#servicios" class="btn btn-outline">Ver tipos de trabajos</a>
-        </div>
+<div id="inicio" class="hero-wrapper">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="tag" style="background: rgba(255,255,255,0.1); color: #fff;">IA + 15 Años en Planta</span>
+      <h1 style="margin-top: 1rem;">Documentación Técnica: Precisión Operativa y Claridad.</h1>
+      <p>
+        Transformo procesos complejos y manuales técnicos en herramientas operativas.
+        Validación experta y velocidad mediante IA para Industria, Formación y Particulares.
+      </p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#contacto" class="btn btn-primary">Consultar ahora</a>
+        <a href="#servicios" class="btn btn-outline">Ver Servicios</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Qué obtienes conmigo</h3>
+      <ul class="check-list">
+        <li><strong>Respuestas Técnicas:</strong> Sin relleno, directas al grano.</li>
+        <li><strong>Experiencia Real:</strong> 15 años en Cobre Las Cruces.</li>
+        <li><strong>Especialidad:</strong> Seguridad, PLC Siemens, SOPs.</li>
+        <li><strong>Formato:</strong> Listo para aplicar en campo o aula.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="perfil" class="container">
+  <div class="grid-2">
+    <div>
+      <span class="eyebrow">Sobre Mí</span>
+      <h2 class="section-title">Más allá de la redacción: Visión de Operador</h2>
+      <p>No soy un redactor genérico; hablo el idioma de la planta. Más de 15 años como operador experto, panelista y brigadista.</p>
+      <p>Un procedimiento mal escrito no es solo un error, es un riesgo. Combino experiencia real con IA para resultados rápidos y fiables.</p>
+    </div>
+
+    <div class="card" style="background:#eef2ff;">
+      <h3>Credenciales Clave</h3>
+      <ul class="check-list">
+        <li>Operación y Seguridad (CLC)</li>
+        <li>Automatización y Robótica Industrial</li>
+        <li>Google Project Management</li>
+        <li>Especialista en PLC / Grafcet</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" style="background:white; border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+  <div class="container">
+    <span class="eyebrow">Lo que hago</span>
+    <h2 class="section-title">Soluciones a Medida</h2>
+
+    <div class="grid-2">
+
+      <!-- PARA EMPRESAS -->
+      <div class="card">
+        <span class="tag">Para Empresas</span>
+        <h3 style="margin-top:1rem;">Ingeniería Documental</h3>
+        <p>Documentación técnica operativa para plantas, talleres y fabricantes.</p>
+        <ul class="check-list">
+          <li>Manuales de operación (SOP).</li>
+          <li>LOTO y Emergencias.</li>
+          <li>Maniobras críticas.</li>
+          <li>Comparativas técnicas.</li>
+        </ul>
       </div>
 
-      <div class="hero-card">
-        <h3>Qué obtienes conmigo</h3>
+      <!-- PARA FORMACIÓN -->
+      <div class="card">
+        <span class="tag">Para Formación</span>
+        <h3 style="margin-top:1rem;">Recursos Didácticos</h3>
+        <p>Material claro para FP y profesionales.</p>
         <ul class="check-list">
-          <li><strong>Rigor técnico:</strong> experiencia real en planta y sala de control.</li>
-          <li><strong>Lenguaje claro:</strong> pensado para operarios, alumnos y mandos.</li>
-          <li><strong>Seguridad:</strong> enfoque en procedimientos, PRL y maniobras críticas.</li>
-          <li><strong>Entrega ágil:</strong> IA como herramienta, no como sustituto del criterio.</li>
+          <li>PLC, Grafcet y Robótica.</li>
+          <li>Esquemas visuales.</li>
+          <li>Dudas técnicas puntualizadas.</li>
+          <li>Apuntes con Método 10.</li>
         </ul>
+      </div>
+
+      <!-- PARA PARTICULARES — NUEVO BLOQUE -->
+      <div class="card">
+        <span class="tag">Para Particulares</span>
+        <h3 style="margin-top: 1rem;">Soluciones Inteligentes</h3>
+        <p>Ayuda práctica para decisiones, viajes y organización personal.</p>
+        <ul class="check-list">
+          <li><strong>Guías de viaje optimizadas</strong>: itinerarios, rutas, transporte y presupuesto.</li>
+          <li><strong>Organización de eventos</strong>: celebraciones, planificación, proveedores.</li>
+          <li><strong>Comparativas detalladas</strong>: tecnología, herramientas, compras.</li>
+          <li><strong>Tareas del día a día</strong>: pasos claros y decisiones rápidas.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="tarifas" class="container">
+  <div style="text-align:center; max-width:700px; margin:0 auto 3rem auto;">
+    <h2 class="section-title">Tarifas de Referencia</h2>
+    <p>Precios desde. Proyectos grandes → presupuesto cerrado.</p>
+  </div>
+
+  <div class="grid-3">
+
+    <div class="card">
+      <h3>Consulta Rápida</h3>
+      <div class="price-tag">Desde 10€</div>
+      <p>Para una duda concreta o comparativa simple.</p>
+    </div>
+
+    <div class="card" style="border-color: var(--accent); position:relative;">
+      <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+      background:var(--accent); color:white; padding:2px 10px; font-size:.7rem;
+      border-radius:4px; font-weight:bold;">MÁS SOLICITADO</span>
+
+      <h3>Solución Completa</h3>
+      <div class="price-tag">Desde 20€</div>
+      <p>Documento ordenado, con explicación clara.</p>
+    </div>
+
+    <div class="card">
+      <h3>Documentación Técnica</h3>
+      <div class="price-tag">Desde 40€</div>
+      <p>Manual, SOP o guía técnica completa.</p>
+    </div>
+
+    <!-- NUEVO: PARA PARTICULARES -->
+    <div class="card">
+      <h3>Soluciones Inteligentes</h3>
+      <div class="price-tag">Desde 15€</div>
+      <p>Viajes, eventos, comparativas y organización personal.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contacto" style="background:var(--bg-hero); color:white;">
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow" style="color:var(--accent);">Contacto</span>
+        <h2 style="font-size:2.2rem; margin-bottom:1rem;">¿Hablamos?</h2>
+        <p style="color:#cbd5e1; margin-bottom:2rem;">Escríbeme tu necesidad. Te respondo con precio y plazo.</p>
+        <strong>Email:</strong><br>
+        <a href="mailto:ibclaboral@gmail.com"
+           style="color:var(--accent); font-size:1.2rem;">
+           ibclaboral@gmail.com</a>
+      </div>
+
+      <div class="card" style="background:white;">
+        <form action="https://formspree.io/f/xqarbqbk" method="POST">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input class="form-input" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-input" name="email" type="email" required>
+          </div>
+          <div class="form-group">
+            <label>¿Qué necesitas?</label>
+            <textarea name="mensaje" rows="4" class="form-input" required></textarea>
+          </div>
+          <button class="btn btn-primary" style="width:100%;">Enviar</button>
+        </form>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- PERFIL -->
-  <section id="perfil" class="container">
-    <div class="grid-2">
-      <div>
-        <span class="eyebrow">Sobre mí</span>
-        <h2 class="section-title">Más que redacción: visión de operador experto</h2>
-        <p style="margin-bottom: 1rem;">
-          No soy un redactor genérico; hablo el idioma de la planta. Durante más de 15 años
-          he trabajado como <strong>operador experto, panelista y brigadista</strong> en entornos
-          industriales críticos.
-        </p>
-        <p style="margin-bottom: 0.8rem;">
-          Sé que un procedimiento mal redactado no es solo un error de texto: es un riesgo
-          de seguridad, una parada, una confusión en una maniobra. 
-        </p>
-        <p>
-          Hoy combino esa experiencia de campo con mi formación en <strong>Automatización y Robótica Industrial</strong>
-          y el uso avanzado de IA para entregarte documentación técnica robusta, clara y rápida.
-        </p>
-      </div>
-
-      <div class="card" style="background: #fff7ed; border-color: #fed7aa;">
-        <h3>Credenciales clave</h3>
-        <ul class="check-list">
-          <li>Operación y seguridad en complejo minero Cobre Las Cruces.</li>
-          <li>Experiencia en sala de control y respuesta a emergencias.</li>
-          <li>Estudios en Automatización y Robótica Industrial (FP Superior).</li>
-          <li>Certificado Google Project Management & datos.</li>
-          <li>Especializado en Grafcet, GEMMA y PLC Siemens.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICIOS (FONDO NARANJA SUAVE) -->
-  <section id="servicios" class="section-soft">
-    <div class="container">
-      <span class="eyebrow">Servicios</span>
-      <h2 class="section-title">Qué puedo hacer por ti</h2>
-      <p style="max-width: 640px; color: var(--text-main); margin-bottom: 2rem;">
-        Trabajo sobre tus documentos, procesos o dudas técnicas y te devuelvo material
-        claro, ordenado y listo para usar en planta, aula o estudio.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <span class="tag">Para empresas</span>
-          <h3 style="margin-top: 0.8rem;">Ingeniería documental</h3>
-          <p>
-            Documentación técnica operativa para plantas, talleres, servicios de mantenimiento
-            y fabricantes.
-          </p>
-          <ul class="check-list">
-            <li>Manuales de operación (SOP) y seguridad.</li>
-            <li>Protocolos de consignación, LOTO y emergencias.</li>
-            <li>Instrucciones paso a paso para maniobras críticas.</li>
-            <li>Comparativas técnicas para decisiones de compra.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="tag">Para formación y técnicos</span>
-          <h3 style="margin-top: 0.8rem;">Recursos didácticos técnicos</h3>
-          <p>
-            Material de apoyo claro para FP, academias y profesionales que se reciclan.
-          </p>
-          <ul class="check-list">
-            <li>Explicaciones “aterrizadas” de PLC, Grafcet y robótica.</li>
-            <li>Esquemas visuales y resúmenes listos para imprimir.</li>
-            <li>Resolución de dudas técnicas puntuales.</li>
-            <li>Organización de apuntes en formato estudio.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TARIFAS -->
-  <section id="tarifas" class="container">
-    <div style="text-align: center; max-width: 720px; margin: 0 auto 3rem auto;">
-      <span class="eyebrow">Tarifas de referencia</span>
-      <h2 class="section-title">Precio claro desde el principio</h2>
-      <p style="color: var(--text-light);">
-        Cada caso se ajusta al tiempo real que requiere, pero estos rangos sirven como guía.
-        Para proyectos de empresa o documentación extensa, trabajamos con presupuesto cerrado.
-      </p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <h3>Consulta rápida</h3>
-        <div class="price-tag">10€</div>
-        <p>Para una duda concreta, revisión de un texto corto o una comparativa simple.</p>
-        <small style="color: var(--text-light);">Entrega por email · 1 documento breve</small>
-      </div>
-
-      <div class="card" style="border-color: var(--accent); position: relative;">
-        <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:white;padding:2px 10px;font-size:0.7rem;border-radius:4px;font-weight:bold;">
-          MÁS SOLICITADO
-        </span>
-        <h3>Solución completa</h3>
-        <div class="price-tag">20€</div>
-        <p>Documento estructurado, ordenado y didáctico. Ideal para estudiantes y formadores.</p>
-        <small style="color: var(--text-light);">Resumen + esquema + explicación</small>
-      </div>
-
-      <div class="card">
-        <h3>Documentación técnica</h3>
-        <div class="price-tag">40–60€ <span>/ doc</span></div>
-        <p>Manuales, SOPs o guías técnicas con enfoque profesional y rigor industrial.</p>
-        <small style="color: var(--text-light);">Pensado para empresas y B2B</small>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO (FONDO OSCURO + NARANJA) -->
-  <section id="contacto" style="background:#111827; color:#e5e7eb;">
-    <div class="container">
-      <div class="grid-2">
-        <div>
-          <span class="eyebrow" style="color: var(--accent);">Contacto</span>
-          <h2 class="section-title" style="color:#f9fafb;">¿Hablamos de tu caso?</h2>
-          <p style="color:#cbd5e1; margin-bottom:1.6rem;">
-            Cuéntame qué necesitas: un manual, una guía de seguridad, un resumen técnico o apoyo con material de formación.
-            Te responderé con una propuesta clara de coste y plazo.
-          </p>
-          <p style="margin-bottom: 0.8rem;">
-            <strong>Email directo:</strong><br>
-            <a href="mailto:ibclaboral@gmail.com" style="color: var(--accent); font-size:1.05rem;">
-              ibclaboral@gmail.com
-            </a>
-          </p>
-          <p style="color:#9ca3af; font-size:0.9rem;">
-            Puedes adjuntar PDFs, fotos de apuntes o capturas cuando respondas a mi email.
-          </p>
-        </div>
-
-        <div class="card" style="background:#020617; color:#e5e7eb; border-color:#1f2937;">
-          <form action="https://formspree.io/f/xqarbqbk" method="POST">
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
-            </div>
-            <div class="form-group">
-              <label for="tipo">¿Quién eres?</label>
-              <select id="tipo" name="tipo" class="form-input" style="background:#f9fafb;">
-                <option value="empresa">Empresa / B2B</option>
-                <option value="formacion">Profesor / Centro de formación</option>
-                <option value="estudiante">Estudiante FP / Técnico</option>
-                <option value="particular">Particular</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="mensaje">¿Qué necesitas?</label>
-              <textarea id="mensaje" name="mensaje" rows="4" class="form-input" placeholder="Describe tu proyecto, documento o duda técnica..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.4rem;">
-              Enviar mensaje
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      IBC · Documentación Técnica Inteligente<br>
-      <span style="opacity: 0.7; font-size: 0.8rem;">Sevilla, España · IA + Experiencia industrial en planta</span>
-    </div>
-  </footer>
+<footer>
+  <div class="container">
+    IBC · Documentación Técnica Inteligente<br>
+    <span style="opacity:0.6; font-size:0.8rem;">Sevilla, España · IA + Experiencia Industrial</span>
+  </div>
+</footer>
 
 </body>
 </html>
