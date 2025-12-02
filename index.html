@@ -2,21 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>IBC · Soluciones Técnicas y Digitales</title>
+  <title>SOLU-TECNIA · Soluciones Técnicas y Digitales</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     :root {
-      /* PALETA DE COLORES DARK TECH */
+      /* PALETA DARK TECH (Profesional y Seria) */
       --bg: #050712;
       --bg-alt: #0b1120;
-      --accent: #ff7a1a; /* Naranja Seguridad */
-      --accent-soft: rgba(255, 122, 26, 0.12);
+      --accent: #ff7a1a; /* Naranja Industrial/Seguridad */
       --text: #e5e7eb;
       --text-soft: #9ca3af;
       --border: #1f2937;
-      --shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
-      --radius: 16px;
+      --radius: 12px;
       
       /* COLOR WHATSAPP */
       --whatsapp: #25D366;
@@ -61,19 +59,19 @@
     }
 
     .logo-text-main {
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      font-size: 1.1rem;
       color: #fff;
+      text-transform: uppercase;
     }
-    .logo-text-sub { font-size: 0.7rem; color: var(--accent); }
+    .logo-text-sub { font-size: 0.7rem; color: var(--accent); font-weight:600; }
 
     .nav-links {
       display: flex;
       gap: 1.5rem;
       font-size: 0.9rem;
     }
-
     .nav-links a { color: var(--text-soft); }
     .nav-links a:hover { color: #fff; }
 
@@ -168,9 +166,7 @@
       transition: border-color 0.3s ease;
     }
 
-    .accordion-item:hover {
-      border-color: var(--text-soft);
-    }
+    .accordion-item:hover { border-color: var(--text-soft); }
 
     details { width: 100%; }
 
@@ -186,7 +182,6 @@
       color: #fff;
     }
 
-    /* Cruz del acordeón */
     summary::after {
       content: '+';
       font-size: 1.5rem;
@@ -195,9 +190,7 @@
       transition: transform 0.2s;
     }
 
-    details[open] summary::after {
-      transform: rotate(45deg);
-    }
+    details[open] summary::after { transform: rotate(45deg); }
 
     details[open] summary {
       border-bottom: 1px solid var(--border);
@@ -299,16 +292,16 @@
   <header>
     <nav class="nav">
       <div class="logo">
-        <div style="background:var(--accent); width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:black;">IB</div>
+        <div style="background:var(--accent); width:36px; height:36px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:black; font-size:1.2rem;">S</div>
         <div>
-          <div class="logo-text-main">IBC · TECNIA</div>
-          <div class="logo-text-sub">Soporte Técnico & Digital</div>
+          <div class="logo-text-main">SOLU-TECNIA</div>
+          <div class="logo-text-sub">Soluciones Técnicas & Digitales</div>
         </div>
       </div>
 
       <div class="nav-links">
         <a href="#inicio">Inicio</a>
-        <a href="#soluciones">Soluciones</a>
+        <a href="#soluciones">Packs</a>
         <a href="#tarifas">Precios</a>
         <a href="#contacto">Contacto</a>
       </div>
@@ -321,61 +314,56 @@
 
     <section id="inicio" class="hero">
       <div class="hero-main">
-        <span class="eyebrow">Ingeniería aplicada a tu día a día</span>
-        <h1>Pongo orden técnico en tu negocio y simplifico tu vida.</h1>
+        <span class="eyebrow">Ingeniería aplicada a tu Barrio</span>
+        <h1>Orden, Seguridad y Tecnología para tu negocio.</h1>
         <p>
-          Soy <strong>Iván Ballesteros</strong>. Aplico 15 años de experiencia industrial para 
-          resolver problemas reales de comercios, estudiantes y particulares.
-          <br><br>
-          Desde organizar un bar hasta aprobar un examen de Robótica.
+          Soy <strong>Iván Ballesteros</strong>. Aplico mis 15 años de experiencia industrial (Cobre Las Cruces) 
+          para solucionar los problemas reales de comercios, eventos y estudiantes.
         </p>
         
         <div class="hero-actions">
-          <a href="#soluciones" class="btn btn-primary">Ver soluciones</a>
+          <a href="#soluciones" class="btn btn-primary">Ver Packs</a>
           <a href="#contacto" class="btn btn-ghost">Tengo una duda</a>
         </div>
       </div>
 
       <div style="background: radial-gradient(circle at top right, #1b2437 0, #0b1120 100%); padding: 2rem; border-radius: 20px; border: 1px solid var(--border);">
-        <h3>Soporte experto, trato de vecino</h3>
+        <h3>Soporte experto, trato cercano</h3>
         <p class="muted" style="margin-bottom:1rem; font-size:0.95rem;">
-          Olvídate de consultoras caras. Uso herramientas modernas (IA) para darte soluciones rápidas y económicas.
+          Olvídate de consultoras caras o de hacerlo tú solo. Soluciones rápidas con precios cerrados.
         </p>
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
           <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">15 años Experiencia</span>
-          <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Cobre Las Cruces</span>
+          <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Seguridad Industrial</span>
           <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Tecnología IA</span>
         </div>
       </div>
     </section>
 
     <section id="soluciones">
-      <div class="eyebrow">Soluciones para Negocios</div>
-      <h2>Packs Directos al Grano</h2>
+      <div class="eyebrow">Soluciones Directas</div>
+      <h2>Packs para Negocios y Particulares</h2>
       <p class="muted" style="margin-bottom: 2rem;">
-        Sin cuotas mensuales ni líos. Elige el pack que necesites para poner orden en tu negocio.
+        Sin cuotas mensuales ni líos. Elige qué necesitas solucionar hoy.
       </p>
 
       <div class="accordion-item">
         <details>
           <summary>🟧 Pack 1: Organización Total <span style="font-size:0.9rem; font-weight:400; opacity:0.8;">(30–50€)</span></summary>
           <div class="accordion-content">
-            <p>
-              <strong>Ideal para:</strong> Carnicerías, pollerías, fruterías, panaderías y comida para llevar.
-              <br>Pon orden en el caos diario y cumple con la normativa sin sustos.
-            </p>
+            <p><strong>Ideal para:</strong> Carnicerías, pollerías, fruterías, panaderías.</p>
             <div class="idea-list">
               <div class="idea-item">
                 <span class="idea-title">✔ Gestión de Pedidos y Ventas</span>
-                Hojas de registro de pedidos claras y previsiones de ventas para no quedarte corto ni pasarte.
+                Hojas de registro claras y previsiones para no fallar en fechas clave.
               </div>
               <div class="idea-item">
                 <span class="idea-title">✔ Rentabilidad Real</span>
-                Cálculo de costes y márgenes. ¿Sabes cuánto ganas realmente por cada kilo o producto?
+                Cálculo de costes y márgenes. ¿Sabes cuánto ganas realmente?
               </div>
               <div class="idea-item">
                 <span class="idea-title">✔ Normativa y Alérgenos</span>
-                Etiquetas, cartelería obligatoria y registro de alérgenos al día para evitar multas.
+                Etiquetas y cartelería obligatoria al día.
               </div>
             </div>
           </div>
@@ -386,18 +374,15 @@
         <details>
           <summary>✨ Pack 2: Presentación Premium <span style="font-size:0.9rem; font-weight:400; opacity:0.8;">(20–40€)</span></summary>
           <div class="accordion-content">
-            <p>
-              <strong>Ideal para:</strong> Peluquerías, tiendas de ropa, uñas y hostelería.
-              <br>Mejora tu imagen ante el cliente. Que se note que eres un profesional.
-            </p>
+            <p><strong>Ideal para:</strong> Peluquerías, tiendas de ropa, uñas y hostelería.</p>
             <div class="idea-list">
               <div class="idea-item">
                 <span class="idea-title">✔ Imagen Corporativa</span>
-                Diseño de carta de precios moderna, flyers y tarjetas de visita que dan gusto ver.
+                Carta de precios moderna, flyers y tarjetas de visita.
               </div>
               <div class="idea-item">
-                <span class="idea-title">✔ Conexión con el Cliente</span>
-                QR directo a tu WhatsApp y cartel exterior llamativo con tus "Servicios" o "Menú del día".
+                <span class="idea-title">✔ Conexión Cliente</span>
+                QR a WhatsApp y carteles exteriores llamativos.
               </div>
             </div>
           </div>
@@ -408,18 +393,15 @@
         <details>
           <summary>📲 Pack 3: Digitalización Express <span style="font-size:0.9rem; font-weight:400; opacity:0.8;">(20–50€)</span></summary>
           <div class="accordion-content">
-            <p>
-              <strong>Ideal para:</strong> Cualquiera que no exista en internet.
-              <br>Si no estás en el móvil de tu cliente, no existes. Te pongo en el mapa en una tarde.
-            </p>
+            <p><strong>Ideal para:</strong> Negocios que no salen en el mapa.</p>
             <div class="idea-list">
               <div class="idea-item">
                 <span class="idea-title">✔ Google Maps (SEO Local)</span>
-                Creación y optimización de perfil, subida de fotos profesionales y configuración de horarios correctos.
+                Te pongo en el mapa, subo fotos pro y configuro horarios.
               </div>
               <div class="idea-item">
-                <span class="idea-title">✔ WhatsApp Business Pro</span>
-                Configuración completa, respuestas automáticas (para cuando estás ocupado) y catálogo digital en QR.
+                <span class="idea-title">✔ WhatsApp Business</span>
+                Configuración completa, respuestas automáticas y catálogo.
               </div>
             </div>
           </div>
@@ -427,25 +409,47 @@
       </div>
 
       <div class="accordion-item" style="border-color: var(--accent);">
-        <details open>
-          <summary style="color:var(--accent);">🚀 Pack 4: Control y Mejora <span style="font-size:0.9rem; font-weight:400; color:#fff;">(30–80€)</span></summary>
+        <details>
+          <summary style="color:var(--accent);">🚀 Pack 4: Control Industrial <span style="font-size:0.9rem; font-weight:400; color:#fff;">(30–80€)</span></summary>
           <div class="accordion-content">
-            <p>
-              <strong>Ideal para:</strong> Negocios con mucho flujo (bares, pollerías, talleres).
-              <br>Aquí aplico mis 15 años de experiencia industrial para ahorrarte dinero y tiempo.
-            </p>
+            <p><strong>Ideal para:</strong> Bares, talleres y negocios con mucho flujo.</p>
             <div class="idea-list">
               <div class="idea-item">
-                <span class="idea-title">✔ Control de Stock e Inventario</span>
-                Sistemas básicos para saber qué tienes y evitar robos o mermas desconocidas.
+                <span class="idea-title">✔ Control de Stock</span>
+                Evita robos y mermas desconocidas con sistemas de industria.
               </div>
               <div class="idea-item">
                 <span class="idea-title">✔ Escandallo de Productos</span>
-                Análisis al céntimo de lo que te cuesta producir tu plato o servicio estrella.
+                Análisis al céntimo de lo que te cuesta producir.
               </div>
               <div class="idea-item">
                 <span class="idea-title">✔ Optimización de Tiempos</span>
-                Mejora de procesos de trabajo para producir más en menos tiempo (mentalidad de fábrica aplicada a tu local).
+                Mejora de procesos para trabajar menos y producir más.
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="accordion-item">
+        <details open>
+          <summary>💍 Bodas y Eventos: Logística de Fotos</summary>
+          <div class="accordion-content">
+            <p>
+              Que no se pierdan las fotos en el móvil de tu cuñado. Creo el sistema para que todos compartan sus fotos al instante y con calidad.
+            </p>
+            <div class="idea-list">
+              <div class="idea-item">
+                <span class="idea-title">✔ QR Colaborativo para Mesas</span>
+                Tarjetas con QR para que los invitados suban sus fotos sin apps raras.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">✔ Recopilación Centralizada</span>
+                Todas las fotos de la boda caen en una misma carpeta segura en la nube.
+              </div>
+              <div class="idea-item">
+                <span class="idea-title">✔ Sin perder calidad</span>
+                Olvídate de las fotos borrosas de WhatsApp.
               </div>
             </div>
           </div>
@@ -459,11 +463,10 @@
       </div>
     </section>
 
-
     <section id="tarifas">
       <div class="eyebrow" style="text-align:center;">Precios Claros</div>
       <h2 style="text-align:center;">Tarifas de Referencia</h2>
-      <p class="muted" style="text-align:center; margin-bottom:2rem;">Precios cerrados. Sin sorpresas.</p>
+      <p class="muted" style="text-align:center; margin-bottom:2rem;">Precios cerrados por trabajo hecho.</p>
 
       <div class="grid-3">
         <div class="card">
@@ -474,9 +477,9 @@
 
         <div class="card" style="border-color:var(--accent); position:relative;">
           <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:2px 10px; font-size:0.7rem; border-radius:4px; font-weight:bold;">PACKS</span>
-          <h3>Pack Documento</h3>
+          <h3>Pack Solución</h3>
           <div style="font-size:2rem; font-weight:bold; color:#fff; margin:0.5rem 0;">30 - 50 €</div>
-          <p class="muted">Elige uno de los packs de arriba (Alérgenos, Menús, Digital).</p>
+          <p class="muted">Packs de Organización, Imagen o Bodas.</p>
         </div>
 
         <div class="card">
@@ -486,7 +489,6 @@
         </div>
       </div>
     </section>
-
 
     <section id="contacto">
       <div class="contact-container">
@@ -512,7 +514,7 @@
   </main>
 
   <footer>
-    <p>IBC · Soluciones Técnicas y Digitales</p>
+    <p>SOLU-TECNIA · Iván Ballesteros</p>
     <p style="font-size:0.75rem; margin-top:0.5rem;">Sevilla · Soporte Presencial y Online</p>
   </footer>
 
