@@ -6,8 +6,254 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    /* ⬇️ TODO TU CSS ORIGINAL AQUÍ SIN CAMBIOS */
-    /* (lo he omitido en este mensaje para no duplicar 400 líneas) */
+    :root {
+      --bg: #050712;
+      --bg-alt: #0b1120;
+      --accent: #ff7a1a;
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border: #1f2937;
+      --radius: 12px;
+      --whatsapp: #25D366;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #030712 48%, #020308 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: 0.2s; }
+    a:hover { filter: brightness(1.2); }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(to bottom, rgba(3,7,18,0.98), rgba(3,7,18,0.92));
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      z-index: 999;
+    }
+
+    .nav {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0.8rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .logo-text-main {
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      font-size: 1.15rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .logo-text-sub { font-size: 0.75rem; color: var(--accent); font-weight:600; }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a { color: var(--text-soft); }
+    .nav-links a:hover { color: #fff; }
+
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    section { margin: 5rem 0; }
+
+    h1,h2,h3 { color: #fff; font-weight: 700; }
+    h1 { font-size: clamp(2rem, 3vw + 1rem, 2.7rem); line-height: 1.2; }
+    h2 { font-size: 1.9rem; margin-bottom: 0.6rem; }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .muted { color: var(--text-soft); }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,0.8fr);
+      gap: 3rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .hero-main p {
+      margin-top: 1rem;
+      font-size: 1.08rem;
+      max-width: 34rem;
+      color: var(--text-soft);
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Botones */
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-soft);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.1);
+      border: 1px solid #25D366;
+      color: #25D366;
+    }
+
+    .btn-whatsapp:hover {
+      background: #25D366;
+      color: #000;
+    }
+
+    /* Accordion */
+    .accordion-item {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    summary {
+      padding: 1.2rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      padding: 1.4rem 1.6rem;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .idea-list { margin-top: 1rem; display: grid; gap: 0.8rem; }
+
+    .idea-item {
+      background: rgba(0,0,0,0.2);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .idea-title {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+
+    /* CONTACTO */
+    .contact-container {
+      background: #0f172a;
+      padding: 3rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.8rem;
+      color: #fff;
+      width: 100%;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width:800px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 
@@ -16,10 +262,10 @@
 <header>
   <nav class="nav">
     <div class="logo">
-      <div style="background:var(--accent); width:36px; height:36px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:black; font-size:1.2rem;">I</div>
+      <div style="background:var(--accent); width:36px; height:36px; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; font-size:1.2rem;">I</div>
       <div>
         <div class="logo-text-main">IBC-TECNIA</div>
-        <div class="logo-text-sub">Sistemas · Procesos · Documentación</div>
+        <div class="logo-text-sub">Procesos · SOP · Sistemas</div>
       </div>
     </div>
 
@@ -30,24 +276,22 @@
       <a href="#contacto">Contacto</a>
     </div>
 
-    <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="font-size:0.8rem; padding: 0.5rem 1rem;">WhatsApp</a>
+    <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="font-size:0.85rem; padding:0.55rem 1rem;">WhatsApp</a>
   </nav>
 </header>
 
 <main>
 
-<!-- ————————————————————————————————————————
-                HERO / IDENTIDAD
-———————————————————————————————————————— -->
+<!-- HERO -->
 <section id="inicio" class="hero">
   <div class="hero-main">
     <span class="eyebrow">Consultoría Operativa Real</span>
-
     <h1>Sistemas que ordenan tu negocio.</h1>
 
     <p>
-      Soy <strong>Iván Ballesteros</strong>. Diseñador de procesos, SOP y documentación operativa para negocios pequeños.
-      Uso métodos industriales y experiencia real para eliminar errores, ordenar tareas y dejar tu negocio funcionando sin caos.
+      Soy <strong>Iván Ballesteros</strong>. Diseño procesos, SOP y documentación 
+      para negocios que no pueden permitirse una consultoría de 2.000€, pero sí necesitan orden, control y métodos claros.
+      Aplico experiencia industrial real para eliminar errores y dejar tu negocio funcionando sin caos.
     </p>
 
     <div class="hero-actions">
@@ -58,28 +302,27 @@
 
   <div style="background: radial-gradient(circle at top right, #1b2437 0, #0b1120 100%); padding: 2rem; border-radius: 20px; border: 1px solid var(--border);">
     <h3>Experiencia Industrial aplicada al Barrio</h3>
-    <p class="muted" style="margin-bottom:1rem; font-size:0.95rem;">
-      He trabajado en seguridad, eventos, hostelería y 15 años en industria pesada.  
-      Sé cómo se vive el caos. Y sé cómo se arregla.
+    <p class="muted" style="margin-bottom: 1rem;">
+      He trabajado en eventos, seguridad, barras, sonido y 15 años en industria pesada.  
+      Sé cómo se vive un turno complicado. Sé cómo arreglar el caos con procesos.
     </p>
+
     <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-      <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Procesos</span>
-      <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">SOP</span>
-      <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Control</span>
-      <span style="font-size:0.75rem; padding:0.2rem 0.6rem; background:#1f2937; border-radius:99px; color:#9ca3af;">Digitalización</span>
+      <span style="background:#1f2937; padding:0.2rem 0.6rem; border-radius:99px;">Procesos</span>
+      <span style="background:#1f2937; padding:0.2rem 0.6rem; border-radius:99px;">SOP</span>
+      <span style="background:#1f2937; padding:0.2rem 0.6rem; border-radius:99px;">Control</span>
+      <span style="background:#1f2937; padding:0.2rem 0.6rem; border-radius:99px;">Digitalización</span>
     </div>
   </div>
 </section>
 
 
-<!-- ————————————————————————————————————————
-                SERVICIOS PRINCIPALES
-———————————————————————————————————————— -->
+<!-- SERVICIOS -->
 <section id="servicios">
-  <div class="eyebrow">Qué hago</div>
+  <span class="eyebrow">Qué hago</span>
   <h2>Sistemas, Procesos y Documentación Operativa</h2>
   <p class="muted" style="margin-bottom: 2rem;">
-    Trabajo con negocios reales: carnicerías, talleres, peluquerías, bares y pequeñas tiendas.  
+    Trabajo con negocios reales: carnicerías, peluquerías, talleres, bares y pequeñas tiendas.  
     Implemento soluciones claras, prácticas y rápidas.
   </p>
 
@@ -87,12 +330,12 @@
     <details>
       <summary>📘 SOP y Métodos de Trabajo</summary>
       <div class="accordion-content">
-        <p><strong>Ideal para:</strong> negocios que repiten errores.</p>
-        <ul class="idea-list">
-          <li class="idea-item"><span class="idea-title">✔ Apertura, Cierre y Cuadre</span>Sistemas claros para trabajar sin dudas ni fallos.</li>
-          <li class="idea-item"><span class="idea-title">✔ Checklists</span>Tareas ordenadas, responsables y control real.</li>
-          <li class="idea-item"><span class="idea-title">✔ Entrenamiento</span>Procesos para que cualquiera pueda aprender rápido.</li>
-        </ul>
+        <p><strong>Para negocios que repiten errores y necesitan orden.</strong></p>
+        <div class="idea-list">
+          <div class="idea-item"><span class="idea-title">✔ Apertura, Cierre y Cuadre</span>Sistemas claros sin dudas ni fallos.</div>
+          <div class="idea-item"><span class="idea-title">✔ Checklists diarios</span>Tareas ordenadas y responsables definidos.</div>
+          <div class="idea-item"><span class="idea-title">✔ Manuales para empleados</span>Formación rápida y clara.</div>
+        </div>
       </div>
     </details>
   </div>
@@ -101,12 +344,12 @@
     <details>
       <summary>📦 Control, Stock y Orden</summary>
       <div class="accordion-content">
-        <p><strong>Ideal para:</strong> negocios donde “faltan cosas” sin saber por qué.</p>
-        <ul class="idea-list">
-          <li class="idea-item"><span class="idea-title">✔ Control de Stock</span>Sistemas para evitar robos y mermas.</li>
-          <li class="idea-item"><span class="idea-title">✔ Optimización de Tiempos</span>Flujos más rápidos y directos.</li>
-          <li class="idea-item"><span class="idea-title">✔ Almacén Organizado</span>Estructura clara y reposición fácil.</li>
-        </ul>
+        <p><strong>Para negocios donde “faltan cosas” sin saber por qué.</strong></p>
+        <div class="idea-list">
+          <div class="idea-item"><span class="idea-title">✔ Control de Stock</span>Sistemas para evitar robos y mermas.</div>
+          <div class="idea-item"><span class="idea-title">✔ Organización</span>Todo en su sitio. Todo fácil. Todo rápido.</div>
+          <div class="idea-item"><span class="idea-title">✔ Optimización de Tiempos</span>Más velocidad, menos estrés.</div>
+        </div>
       </div>
     </details>
   </div>
@@ -115,37 +358,33 @@
     <details>
       <summary>🖥️ Digitalización Operativa</summary>
       <div class="accordion-content">
-        <p><strong>No diseño webs.</strong>  
-        Digitalizo procesos reales: comunicación, pedidos y control.</p>
-
-        <ul class="idea-list">
-          <li class="idea-item"><span class="idea-title">✔ WhatsApp Business Optimizado</span>Respuestas, catálogos y automatizaciones.</li>
-          <li class="idea-item"><span class="idea-title">✔ Google Maps (SEO Local)</span>Para que te encuentren fácil.</li>
-          <li class="idea-item"><span class="idea-title">✔ QR y Formularios Útiles</span>Sistemas para evitar perder datos o pedidos.</li>
-        </ul>
+        <p><strong>No diseño webs.</strong> Digitalizo tu negocio donde importa.</p>
+        <div class="idea-list">
+          <div class="idea-item"><span class="idea-title">✔ WhatsApp Business optimizado</span>Respuestas, catálogo y automatizaciones.</div>
+          <div class="idea-item"><span class="idea-title">✔ Google Maps (SEO Local)</span>Te encuentran fácil.</div>
+          <div class="idea-item"><span class="idea-title">✔ QR y Formularios operativos</span>Pedidos, feedback, control.</div>
+        </div>
       </div>
     </details>
   </div>
 </section>
 
 
-<!-- ————————————————————————————————————————
-                        PACKS
-———————————————————————————————————————— -->
+<!-- PACKS -->
 <section id="packs">
-  <div class="eyebrow">Soluciones</div>
+  <span class="eyebrow">Soluciones</span>
   <h2>Packs Operativos</h2>
-  <p class="muted" style="margin-bottom:2rem;">Precios cerrados por sistema implantado.</p>
+  <p class="muted" style="margin-bottom: 2rem;">Precios cerrados por sistema implantado.</p>
 
   <div class="accordion-item">
     <details>
       <summary>🟧 Pack Orden Total (30–60€)</summary>
       <div class="accordion-content">
-        <ul class="idea-list">
-          <li class="idea-item"><span class="idea-title">✔ SOP completos</span>Todo por escrito para que no falle nada.</li>
-          <li class="idea-item"><span class="idea-title">✔ Checklists</span>Operativa diaria clara.</li>
-          <li class="idea-item"><span class="idea-title">✔ Flujo de trabajo</span>Orden y rapidez real.</li>
-        </ul>
+        <div class="idea-list">
+          <div class="idea-item"><span class="idea-title">✔ SOP completos</span>Tu negocio organizado.</div>
+          <div class="idea-item"><span class="idea-title">✔ Checklists diarios</span>Orden real.</div>
+          <div class="idea-item"><span class="idea-title">✔ Flujo de trabajo</span>Más simple y rápido.</div>
+        </div>
       </div>
     </details>
   </div>
@@ -154,11 +393,11 @@
     <details>
       <summary>🟦 Pack Control (30–60€)</summary>
       <div class="accordion-content">
-        <ul class="idea-list">
-          <li class="idea-item"><span class="idea-title">✔ Stock y mermas</span>Control real del negocio.</li>
-          <li class="idea-item"><span class="idea-title">✔ Estimación de demanda</span>No fallar en fechas críticas.</li>
-          <li class="idea-item"><span class="idea-title">✔ Organización</span>Todo en su sitio. Todo fácil.</li>
-        </ul>
+        <div class="idea-list">
+          <div class="idea-item"><span class="idea-title">✔ Stock y mermas</span>Control real del negocio.</div>
+          <div class="idea-item"><span class="idea-title">✔ Organización</span>Menos pérdidas. Más claridad.</div>
+          <div class="idea-item"><span class="idea-title">✔ Estimación de demanda</span>No fallas en fechas clave.</div>
+        </div>
       </div>
     </details>
   </div>
@@ -167,49 +406,25 @@
     <details>
       <summary>🟫 Pack Digital Operativo (20–50€)</summary>
       <div class="accordion-content">
-        <ul class="idea-list">
-          <li class="idea-item"><span class="idea-title">✔ WhatsApp Business</span>Configurado al máximo.</li>
-          <li class="idea-item"><span class="idea-title">✔ Google Business</span>Posicionado en tu zona.</li>
-          <li class="idea-item"><span class="idea-title">✔ QR & Formularios</span>Digitalización práctica.</li>
-        </ul>
+        <div class="idea-list">
+          <div class="idea-item"><span class="idea-title">✔ WhatsApp Business</span>Configurado al máximo.</div>
+          <div class="idea-item"><span class="idea-title">✔ Google Business</span>Optimizado y visible.</div>
+          <div class="idea-item"><span class="idea-title">✔ QR & Formularios</span>Digitalización que ahorra tiempo.</div>
+        </div>
       </div>
     </details>
   </div>
 </section>
 
 
-<!-- ————————————————————————————————————————
-                        CONTACTO
-———————————————————————————————————————— -->
+<!-- CONTACTO -->
 <section id="contacto">
   <div class="contact-container">
-    <div class="eyebrow">¿Empezamos?</div>
+    <span class="eyebrow">¿Empezamos?</span>
     <h2>Cuéntame tu problema</h2>
-
-    <p class="muted" style="margin-bottom:2rem;">
+    <p class="muted" style="margin-bottom: 2rem;">
       Te digo la solución exacta en minutos.  
       Sin rodeos. Sin tecnicismos. Sin líos.
     </p>
 
-    <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="font-size:1.1rem; padding: 1rem 2rem; display:inline-flex;">
-      💬 Abrir WhatsApp
-    </a>
-
-    <form method="POST" action="https://formspree.io/f/TU_CODIGO_AQUI">
-      <label style="color:#fff; font-size:0.9rem; margin-top:2rem;">O envíame un correo:</label>
-      <input name="email" type="email" placeholder="Tu correo electrónico" required />
-      <textarea name="mensaje" rows="3" placeholder="Describe tu caso..." required></textarea>
-      <button type="submit" class="btn btn-primary" style="width:100%;">Enviar</button>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <p>IBC-TECNIA · Iván Ballesteros</p>
-  <p style="font-size:0.75rem; margin-top:0.5rem;">Procesos · SOP · Control · Sistemas Operativos</p>
-</footer>
-
-</body>
-</html>
+    <a href="https://wa.me/34XXXXXXXXX" class="btn btn-whatsapp" style="font-size:1.1rem
